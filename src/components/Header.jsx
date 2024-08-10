@@ -1,9 +1,10 @@
 import Link from 'next/link'
 import React from 'react'
+import {SignInButton,SignedIn,SignedOut,UserButton} from '@clerk/nextjs'
 
 const Header = () => {
   return (
-    <div className='flex items-center justify-between m-5 md:m-10'>
+    <div className='flex items-center justify-between p-3 md:p-5 md:mt-8 bg-gradient-to-r from-blue-300 to-purple-400 shadow-lg'>
       
       <div className="">
       <Link href='/' className='text-2xl font-extrabold group cursor-pointer'>
@@ -18,7 +19,12 @@ const Header = () => {
       <div className="flex  gap-4">
          <Link href={"/"}>Home</Link>
          <Link href={"/about"}>about</Link>
-         <Link href={"/sign-in"}>Sign in</Link>
+         <SignedIn>
+          <UserButton/>
+         </SignedIn>
+         <SignedOut>
+          <SignInButton/>
+         </SignedOut>
       </div>
     </div>
   )
